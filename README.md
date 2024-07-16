@@ -1,6 +1,6 @@
 # Picture-Booksのメインプロジェクトです
 ### Unity
-Editor 2021.3.23f1
+Editor 2021.3.23f1(仮)
 
 build フォーマット Windows10 Windows11
 ### Rule
