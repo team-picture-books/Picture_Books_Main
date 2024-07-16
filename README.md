@@ -1,4 +1,4 @@
-# Picture_Books_main
+# Picture-Booksのメインプロジェクトです
 ### Unity
 Editor 2021.3.23f1
 
