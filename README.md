@@ -8,6 +8,8 @@ Libraryはpushしない
 
 ブランチは機能ごとに切る
 (例)test/enemymove-YumeyaMakita
+
+scriptの変数はシリアライズ化する
 ### Library
 DoTween
 
