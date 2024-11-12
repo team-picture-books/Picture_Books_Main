@@ -15,7 +15,7 @@ public class titlescript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))  // Fire2はBボタンに対応
+        if (Input.GetButtonDown("Bbutton"))  // Fire2はBボタンに対応
         {
             // シーンを切り替える
             SceneManager.LoadScene(nextSceneName);
