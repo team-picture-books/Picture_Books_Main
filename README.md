@@ -10,6 +10,8 @@ Libraryはpushしない
 (例)test/enemymove-YumeyaMakita
 
 scriptの変数はシリアライズ化する
+
+コンフリクトが起こるのがつらいので新しい機能はその都度メインリポジトリからクローンして機能ごとにブランチを切ってください
 ### Library
 DoTween
 
