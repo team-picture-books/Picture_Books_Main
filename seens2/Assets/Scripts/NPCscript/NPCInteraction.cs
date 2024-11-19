@@ -42,7 +42,7 @@ public class NPCInteraction : MonoBehaviour
             {
                 OnTalkButtonPressed();
             }
-            if (Input.GetKeyDown(KeyCode.Z)) // コントローラのBボタンを使用
+            if (Input.GetKeyDown(KeyCode.Z)) // デバッグ用でｚキーを使用
             {
                 OnTalkButtonPressed();
             }
@@ -66,6 +66,10 @@ public class NPCInteraction : MonoBehaviour
 
         // 会話中でBボタンが押されたら次の会話テキストを表示
         if (isTalking && Input.GetButtonDown("Bbutton")) // コントローラのBボタンを使用
+        {
+            ShowNextDialogue();
+        }
+        if (Input.GetKeyDown(KeyCode.Z))
         {
             ShowNextDialogue();
         }
