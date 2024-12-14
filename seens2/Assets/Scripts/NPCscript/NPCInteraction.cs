@@ -6,14 +6,16 @@ public class NPCInteraction : MonoBehaviour
 {
     public GameObject player;  // プレイヤーオブジェクト
     public GameObject talkButton;  // 話すボタン（UI）
-    public GameObject speechBubble;  // 吹き出しUI
-    public TextMeshProUGUI speechText;  // 吹き出し内のテキストをTextMeshProに変更
+    public GameObject npcSpeechBubble;  // NPCの吹き出しUI
+    public TextMeshProUGUI npcSpeechText;  // NPC吹き出し内のテキスト
+    public GameObject playerSpeechBubble;  // プレイヤーの吹き出しUI
+    public TextMeshProUGUI playerSpeechText;  // プレイヤー吹き出し内のテキスト
     public float interactionDistance = 2.0f;  // プレイヤーとNPCの距離判定
     public DialogueLoader dialogueLoader;  // CSVから会話を読み込むスクリプト
     public int npcID;  // このNPCの識別ID
     public Transform npcHead;  // NPCの頭の位置（Transform参照）
 
-    private List<string> dialogues;  // このNPCの会話リスト
+    private List<DialogueLoader.Dialogue> dialogues;  // NPCの会話リスト
     private int currentDialogueIndex = 0;
     private Camera mainCamera;
     private PlayerController playerController;  // プレイヤーコントローラーの参照
@@ -42,7 +44,7 @@ public class NPCInteraction : MonoBehaviour
             {
                 OnTalkButtonPressed();
             }
-            if (Input.GetKeyDown(KeyCode.Z)) // デバッグ用でｚキーを使用
+            if (Input.GetKeyDown(KeyCode.Z)) // デバッグ用でZキーを使用
             {
                 OnTalkButtonPressed();
             }
@@ -52,16 +54,17 @@ public class NPCInteraction : MonoBehaviour
             talkButton.SetActive(false);
             if (!isTalking)
             {
-                speechBubble.SetActive(false);  // 離れたら吹き出しも非表示にする
+                npcSpeechBubble.SetActive(false);  // 離れたらNPCの吹き出しを非表示
+                playerSpeechBubble.SetActive(false);  // プレイヤーの吹き出しも非表示
                 playerController.canMove = true;  // 会話が終わったらプレイヤーの操作を許可
             }
         }
 
         // 吹き出しの位置をNPCの頭上に設定
-        if (speechBubble.activeSelf)
+        if (npcSpeechBubble.activeSelf)
         {
             Vector3 screenPosition = mainCamera.WorldToScreenPoint(npcHead.position);  // NPCの頭の位置をスクリーン座標に変換
-            speechBubble.transform.position = screenPosition;  // 吹き出しをNPCの頭上に配置
+            npcSpeechBubble.transform.position = screenPosition;  // 吹き出しをNPCの頭上に配置
         }
 
         // 会話中でBボタンが押されたら次の会話テキストを表示
@@ -69,7 +72,7 @@ public class NPCInteraction : MonoBehaviour
         {
             ShowNextDialogue();
         }
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z)) // デバッグ用でZキーを使用
         {
             ShowNextDialogue();
         }
@@ -89,9 +92,8 @@ public class NPCInteraction : MonoBehaviour
         if (dialogues.Count > 0)
         {
             isTalking = true;
-            speechBubble.SetActive(true);
             currentDialogueIndex = 0;
-            speechText.text = dialogues[currentDialogueIndex];
+            ShowNextDialogue();
 
             // プレイヤーの操作を無効化
             playerController.canMove = false;
@@ -106,11 +108,23 @@ public class NPCInteraction : MonoBehaviour
     // 次の会話テキストを表示するメソッド
     private void ShowNextDialogue()
     {
-        currentDialogueIndex++;
         if (currentDialogueIndex < dialogues.Count)
         {
-            // 次の会話を表示
-            speechText.text = dialogues[currentDialogueIndex];
+            var currentDialogue = dialogues[currentDialogueIndex];
+            if (currentDialogue.speaker == DialogueLoader.SpeakerType.NPC)
+            {
+                npcSpeechText.text = currentDialogue.text;
+                npcSpeechBubble.SetActive(true);
+                playerSpeechBubble.SetActive(false);
+            }
+            else if (currentDialogue.speaker == DialogueLoader.SpeakerType.Player)
+            {
+                playerSpeechText.text = currentDialogue.text;
+                playerSpeechBubble.SetActive(true);
+                npcSpeechBubble.SetActive(false);
+            }
+
+            currentDialogueIndex++;
         }
         else
         {
@@ -123,8 +137,8 @@ public class NPCInteraction : MonoBehaviour
     private void EndDialogue()
     {
         isTalking = false;
-        speechBubble.SetActive(false);
+        npcSpeechBubble.SetActive(false);
+        playerSpeechBubble.SetActive(false);
         playerController.canMove = true;  // プレイヤーの操作を許可
     }
 }
-

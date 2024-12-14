@@ -6,19 +6,19 @@ public class PlayerController : MonoBehaviour
     public float rotationSpeed = 100f;
     private CharacterController controller;
     private float gravity = 9.81f;
-    public GameObject itembar;
+    
 
     // プレイヤーの移動や視点移動を制御するフラグ
     public bool canMove = true;
 
     // アイテムバーの表示状態を管理するフラグ
-    private bool isItemBarVisible = false;
+    
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         // 初期状態でアイテムバーを非表示に設定
-        itembar.SetActive(false);
+        
     }
 
     void Update()
@@ -54,11 +54,7 @@ public class PlayerController : MonoBehaviour
             controller.Move(moveDirection * moveSpeed * Time.deltaTime);
 
             // Xボタンでアイテムバーの表示/非表示を切り替え
-            if (Input.GetButtonDown("Xbutton")) // Xボタンが押されたとき
-            {
-                isItemBarVisible = !isItemBarVisible; // 状態を切り替え
-                itembar.SetActive(isItemBarVisible); // アイテムバーの表示状態を設定
-            }
+            
         }
     }
 }
