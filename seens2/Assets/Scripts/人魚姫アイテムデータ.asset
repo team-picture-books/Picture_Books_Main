@@ -13,16 +13,10 @@ MonoBehaviour:
   m_Name: "\u4EBA\u9B5A\u59EB\u30A2\u30A4\u30C6\u30E0\u30C7\u30FC\u30BF"
   m_EditorClassIdentifier: 
   scenes:
-  - enemylist:
-    - id: 0
-      item: {fileID: 0}
-    - id: 0
-      item: {fileID: 0}
+  - itemlist: []
     spawnlist:
     - SpawnPoints: []
-  - enemylist:
-    - id: 0
-      item: {fileID: 0}
+  - itemlist: []
     spawnlist: []
-  - enemylist: []
+  - itemlist: []
     spawnlist: []
