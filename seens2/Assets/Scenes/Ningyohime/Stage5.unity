@@ -1274,6 +1274,22 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -31878
       objectReference: {fileID: 0}
+    - target: {fileID: 1191399629279847820, guid: c5cb3513a2dcf044a932b00dfce245be, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191399629279847820, guid: c5cb3513a2dcf044a932b00dfce245be, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191399629279847820, guid: c5cb3513a2dcf044a932b00dfce245be, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191399629279847820, guid: c5cb3513a2dcf044a932b00dfce245be, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6621141090455208563, guid: c5cb3513a2dcf044a932b00dfce245be, type: 3}
       propertyPath: m_Name
       value: Player
