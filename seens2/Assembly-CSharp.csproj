@@ -58,7 +58,9 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.7f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\TextReveal.cs" />
     <Compile Include="Assets\Scripts\NPCscript\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Dialogue.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\HingedDoor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />

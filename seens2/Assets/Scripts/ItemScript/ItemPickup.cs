@@ -42,6 +42,10 @@ public class ItemPickup : MonoBehaviour
             {
                 AcquireItem();
             }
+            if (Input.GetButtonDown("Bbutton")) // 例: Eキーでアイテム取得
+            {
+                AcquireItem();
+            }
         }
         else
         {

@@ -52,6 +52,10 @@ public class StoryItemPickup : MonoBehaviour
             {
                 AcquireItem();
             }
+            if (Input.GetButtonDown("Bbutton"))
+            {
+                AcquireItem();
+            }
         }
         else
         {

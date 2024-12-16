@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4018062823280435274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4932759957077450418}
+  - component: {fileID: 7207304072357709604}
+  m_Layer: 0
+  m_Name: ArasuziMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4932759957077450418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018062823280435274}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 960, y: 540, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7207304072357709604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018062823280435274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 527ead2c60ed53f438bc9e273eca1730, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshPro: {fileID: 0}
+  lines:
+  - "\u3053\u308C\u306F\u3069\u3053\u304B\u3075\u3057\u304E\u306A\u5834\u6240\u306E\u304A\u8A71\r\n"
+  - "\u5927\u304D\u3044\u6D77\u306E\u6DF1\u3044\u6DF1\u3044\u3068\u3053\u308D\u306B\u306F\u738B\u56FD\u304C\u3042\u308A\u307E\u3057\u305F\r\n"
+  - "\u305D\u306E\u6D77\u306B\u4F4F\u3080\u4EBA\u9B5A\u3055\u3093\u305F\u3061\u306E\u738B\u56FD\u3067\u3059\r\n"
+  - "\u305D\u306E\u56FD\u306B\u4F4F\u3080\u3001\u4E00\u756A\u5E74\u304C\u308F\u304B\u3044\u4EBA\u9B5A\u59EB\r\n"
+  - "\u304B\u306E\u3058\u3087\u306F\u308A\u304F\u306E\u4E16\u754C\u306B\u304D\u3087\u3046\u307F\u3057\u3093\u3057\u3093\u3067\u3059\r\n"
+  - "\u4EBA\u9B5A\u3072\u3081\u306F\u308A\u304F\u306E\u4E16\u754C\u3092\u898B\u308B\u305F\u3081\u306B\u6D77\u306E\u4E0A\u3078\u3068\u5411\u304B\u3044\u307E\u3057\u305F\r\n"
+  - "\u6D77\u306E\u4E0A\u306B\u51FA\u3066\u304D\u305F\u4EBA\u9B5A\u3072\u3081\r\n"
+  - "\u306F\u3058\u3081\u306B\u76EE\u306B\u3057\u305F\u3082\u306E\u306F\u5927\u304D\u306A\u8239\u3067\u3057\u305F\r\n"
+  - "\u967D\u6C17\u306A\u97F3\u697D\u304C\u805E\u3053\u3048\u3066\u304D\u307E\u3059\r\n"
+  - "\u304A\u796D\u308A\u3067\u3082\u3057\u3066\u3044\u308B\u306E\u3067\u3057\u3087\u3046\u304B\r\n"
+  - "\u4F55\u3060\u304B\u7A7A\u304C\u6697\u304F\u306A\u3063\u3066\u304D\u307E\u3057\u305F\r\n"
+  - "\u3069\u3046\u3084\u3089\u3042\u3089\u3057\u304C\u6765\u305F\u3088\u3046\u3067\u3059\r\n"
+  fadeInDuration: 1
+  nextSceneName: Stage1_1

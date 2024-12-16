@@ -23,6 +23,10 @@ public class DoorButton : MonoBehaviour
         {
             door?.ToggleDoor(); // ドアを開閉
         }
+        if (playerNearby && Input.GetButtonDown("Bbutton"))
+        {
+            door?.ToggleDoor(); // ドアを開閉
+        }
     }
 
     private void OnTriggerEnter(Collider other)

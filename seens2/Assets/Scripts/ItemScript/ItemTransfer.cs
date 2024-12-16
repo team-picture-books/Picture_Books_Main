@@ -48,6 +48,12 @@ public class ItemTransfer : MonoBehaviour
             {
                 TransferItem();
             }
+            
+            //if (selectedItemIndex >= 0 && Input.GetButtonDown("Bbutton"))
+            //{
+              //  TransferItem();
+
+            //}
         }
     }
 

@@ -21,6 +21,13 @@ public class NPCInteraction : MonoBehaviour
     private PlayerController playerController;  // プレイヤーコントローラーの参照
     private bool isTalking = false;  // 会話中かどうかを示すフラグ
 
+    private bool isChoosingOption = false;  // 選択肢を選んでいるかのフラグ
+    private int selectedOptionIndex = -1;  // 選択された選択肢のインデックス（初期化）
+    private List<string> currentOptions = new List<string>();  // 現在表示中の選択肢リスト
+
+    public bool shouldChangeNPCID = false;  // NPCIDを変更するかどうかを決定するフラグ
+    public int newNPCID;  // 新しいNPCID（変更する場合に設定）
+
     void Start()
     {
         mainCamera = Camera.main;  // メインカメラを取得
@@ -68,13 +75,22 @@ public class NPCInteraction : MonoBehaviour
         }
 
         // 会話中でBボタンが押されたら次の会話テキストを表示
-        if (isTalking && Input.GetButtonDown("Bbutton")) // コントローラのBボタンを使用
+        if (isTalking && !isChoosingOption && Input.GetButtonDown("Bbutton")) // コントローラのBボタンを使用
         {
             ShowNextDialogue();
         }
         if (Input.GetKeyDown(KeyCode.Z)) // デバッグ用でZキーを使用
         {
             ShowNextDialogue();
+        }
+
+        // 選択肢が表示されているときに、キーボードで選択
+        if (isChoosingOption)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) { SelectOption(0); }
+            else if (Input.GetKeyDown(KeyCode.Alpha2)) { SelectOption(1); }
+            else if (Input.GetKeyDown(KeyCode.Alpha3)) { SelectOption(2); }
+            // 他のキーも追加可能
         }
     }
 
@@ -124,12 +140,47 @@ public class NPCInteraction : MonoBehaviour
                 npcSpeechBubble.SetActive(false);
             }
 
-            currentDialogueIndex++;
+            // 次の会話が選択肢を含む場合
+            if (currentDialogue.options.Count > 0)
+            {
+                ShowOptions(currentDialogue);  // 選択肢を表示
+            }
+            else
+            {
+                currentDialogueIndex++;
+            }
         }
         else
         {
             // 会話が終了した場合
             EndDialogue();
+        }
+    }
+
+    // 選択肢を表示
+    private void ShowOptions(DialogueLoader.Dialogue currentDialogue)
+    {
+        isChoosingOption = true;
+        currentOptions = currentDialogue.options;
+        // 例えば、選択肢がある場合はテキストで表示する（UI上に表示することも可能）
+        npcSpeechText.text = "選択肢を選んでください:";  // メッセージを変更
+    }
+
+    // 選択肢を選択した時
+    private void SelectOption(int optionIndex)
+    {
+        if (optionIndex < currentOptions.Count)
+        {
+            selectedOptionIndex = optionIndex;  // 選択されたインデックスを保存
+            var selectedOption = currentOptions[selectedOptionIndex];
+            Debug.Log($"選択された選択肢: {selectedOption}");
+
+            // 選択肢に基づいて次の会話を表示
+            var currentDialogue = dialogues[currentDialogueIndex];
+            currentDialogueIndex = currentDialogue.nextDialogueIndices[selectedOptionIndex];  // 選択肢に対応する次の会話インデックスを設定
+            ShowNextDialogue();  // 次の会話を表示
+
+            isChoosingOption = false;  // 選択肢の表示を終了
         }
     }
 
@@ -140,5 +191,13 @@ public class NPCInteraction : MonoBehaviour
         npcSpeechBubble.SetActive(false);
         playerSpeechBubble.SetActive(false);
         playerController.canMove = true;  // プレイヤーの操作を許可
+
+        // NPCIDを変更する場合、設定された新しいnpcIDを反映
+        if (shouldChangeNPCID)
+        {
+            npcID = newNPCID;
+            dialogues = dialogueLoader.GetDialoguesForNPC(npcID);  // 新しいNPCの会話データをロード
+            Debug.Log($"NPC IDが変更されました: 新しいNPC ID = {npcID}");
+        }
     }
 }
