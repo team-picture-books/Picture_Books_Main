@@ -108,6 +108,7 @@
     <Compile Include="Assets\Scripts\menuscript\MenuContoroller.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Scripts\CameraContol.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\TownNPCinteraction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
     <Compile Include="Assets\Scripts\menuscript\MenuController.cs" />

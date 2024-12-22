@@ -10,15 +10,11 @@ public class DialogueLoader : MonoBehaviour
     {
         public SpeakerType speaker;  // 発言者（NPCまたはPlayer）
         public string text;          // 会話テキスト
-        public List<string> options; // 選択肢（選択肢がない場合はnullまたは空リスト）
-        public List<int> nextDialogueIndices; // 各選択肢に対応する次の会話インデックス
 
-        public Dialogue(SpeakerType speaker, string text, List<string> options = null, List<int> nextDialogueIndices = null)
+        public Dialogue(SpeakerType speaker, string text)
         {
             this.speaker = speaker;
             this.text = text;
-            this.options = options ?? new List<string>();  // 選択肢がなければ空リスト
-            this.nextDialogueIndices = nextDialogueIndices ?? new List<int>();  // 次の会話がない場合は空リスト
         }
     }
 
@@ -59,19 +55,7 @@ public class DialogueLoader : MonoBehaviour
                 SpeakerType speaker = (SpeakerType)System.Enum.Parse(typeof(SpeakerType), values[1].Trim());
                 string dialogueText = values[2].Trim();
 
-                List<string> options = new List<string>();
-                List<int> nextDialogueIndices = new List<int>();
-
-                if (values.Length > 3)
-                {
-                    for (int i = 3; i < values.Length - 1; i += 2)
-                    {
-                        options.Add(values[i].Trim());
-                        nextDialogueIndices.Add(int.Parse(values[i + 1].Trim()));
-                    }
-                }
-
-                Dialogue dialogue = new Dialogue(speaker, dialogueText, options, nextDialogueIndices);
+                Dialogue dialogue = new Dialogue(speaker, dialogueText);
 
                 if (!npcDialogues.ContainsKey(npcID))
                 {

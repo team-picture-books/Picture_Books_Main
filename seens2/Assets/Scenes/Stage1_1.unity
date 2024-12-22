@@ -954,37 +954,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ed8b5a76f0ba8e4490f0ec9b01f065b, type: 3}
   m_PrefabInstance: {fileID: 222044996}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &240750791
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 240750792}
-  m_Layer: 0
-  m_Name: GimmickMaster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &240750792
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 240750791}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 990.14594, y: 498.8355, z: 0.9863281}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &245665926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1316,7 +1285,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8490596614564876335, guid: 32bd0cc84e29b1f4b826ea458bb50ccf, type: 3}
   m_PrefabInstance: {fileID: 3695039372434485353}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1485028207}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -1404,7 +1373,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3283004792009059900, guid: 32bd0cc84e29b1f4b826ea458bb50ccf, type: 3}
   m_PrefabInstance: {fileID: 3695039372434485353}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1420551116}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -1739,8 +1708,8 @@ GameObject:
   - component: {fileID: 558548030}
   - component: {fileID: 558548029}
   - component: {fileID: 558548028}
-  - component: {fileID: 558548031}
   - component: {fileID: 558548032}
+  - component: {fileID: 558548033}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -1836,30 +1805,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558548026}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &558548031
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558548026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0374e72b31f759f42893972a73c29ab8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2084473856}
-  talkButton: {fileID: 955889776}
-  npcSpeechBubble: {fileID: 6996108766262583446}
-  npcSpeechText: {fileID: 4145328584841520854}
-  playerSpeechBubble: {fileID: 1234374182}
-  playerSpeechText: {fileID: 498329114}
-  interactionDistance: 2
-  dialogueLoader: {fileID: 1726126659}
-  npcID: 1
-  npcHead: {fileID: 2066352619}
-  shouldChangeNPCID: 0
-  newNPCID: 0
 --- !u!114 &558548032
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,13 +1823,37 @@ MonoBehaviour:
   - {fileID: 1454966238}
   sceneNames:
   - arasuzi1
-  - Stage3
-  - Stage4
+  - arasuzi1
+  - arasuzi1
   itemIcons:
   - {fileID: 425601352}
   - {fileID: 1281768398}
   - {fileID: 1549478010}
   interactDistance: 2
+--- !u!114 &558548033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558548026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a6d1914369a5a4badf1f4c0b02c02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2084473856}
+  talkButton: {fileID: 955889776}
+  npcSpeechBubble: {fileID: 6996108766262583446}
+  npcSpeechText: {fileID: 4145328584841520854}
+  playerSpeechBubble: {fileID: 1234374182}
+  playerSpeechText: {fileID: 498329114}
+  interactionDistance: 2
+  dialogueLoader: {fileID: 1726126659}
+  npcID: 1
+  npcHead: {fileID: 2066352619}
+  canGiveItem: 0
+  itemUI: {fileID: 1420551116}
 --- !u!1001 &565058968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2808,6 +2777,7 @@ GameObject:
   - component: {fileID: 918523278}
   - component: {fileID: 918523277}
   - component: {fileID: 918523276}
+  - component: {fileID: 918523280}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -2837,7 +2807,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918523274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0374e72b31f759f42893972a73c29ab8, type: 3}
   m_Name: 
@@ -2852,8 +2822,11 @@ MonoBehaviour:
   dialogueLoader: {fileID: 1726126659}
   npcID: 2
   npcHead: {fileID: 1173866141}
-  shouldChangeNPCID: 0
-  newNPCID: 0
+  hasChoices: 0
+  choices: []
+  correspondingNPCIDs: 
+  choiceUI: {fileID: 0}
+  choiceTexts: []
 --- !u!136 &918523277
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2927,6 +2900,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918523274}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &918523280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918523274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76a6d1914369a5a4badf1f4c0b02c02f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2084473856}
+  talkButton: {fileID: 137957087}
+  npcSpeechBubble: {fileID: 2110096459}
+  npcSpeechText: {fileID: 1891247720}
+  playerSpeechBubble: {fileID: 6996108766262583446}
+  playerSpeechText: {fileID: 4145328584841520854}
+  interactionDistance: 2
+  dialogueLoader: {fileID: 1726126659}
+  npcID: 2
+  npcHead: {fileID: 1173866141}
+  canGiveItem: 0
+  itemUI: {fileID: 1485028207}
 --- !u!1 &955889776
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,6 +4127,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1056049236}
   m_SourcePrefab: {fileID: 100100000, guid: 5ed8b5a76f0ba8e4490f0ec9b01f065b, type: 3}
+--- !u!1 &1420551116 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2805480199779911326, guid: 32bd0cc84e29b1f4b826ea458bb50ccf, type: 3}
+  m_PrefabInstance: {fileID: 3695039372434485353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1454275735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4590,6 +4592,11 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 100
   jumpSpeed: 5
+--- !u!1 &1485028207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2113450878133407648, guid: 32bd0cc84e29b1f4b826ea458bb50ccf, type: 3}
+  m_PrefabInstance: {fileID: 3695039372434485353}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493765682 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 86e822cb741b60a4d9ddcc7e662d5ea0, type: 3}
@@ -7200,7 +7207,7 @@ PrefabInstance:
     - target: {fileID: 5662020627660594108, guid: 32bd0cc84e29b1f4b826ea458bb50ccf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 558548031}
+      objectReference: {fileID: 0}
     - target: {fileID: 7534518083343567160, guid: 32bd0cc84e29b1f4b826ea458bb50ccf, type: 3}
       propertyPath: m_Camera
       value: 
@@ -7323,5 +7330,4 @@ SceneRoots:
   - {fileID: 1924184739}
   - {fileID: 565058968}
   - {fileID: 1400951434}
-  - {fileID: 240750792}
   - {fileID: 2084473862}
