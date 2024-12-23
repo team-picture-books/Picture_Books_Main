@@ -31,14 +31,14 @@ public class TownMainNPCItemscript : MonoBehaviour
     // 会話データ（選択肢後のテキストを含む）
     private string[] dialogueTextsAfterChoiceA = new string[]
     {
-        "そうなの、私はオルゴールの土台は見つけたんだけど",
+        "そうなの、わたしはオルゴールの土台は見つけたんだけど",
         "他のパーツが見当たらなくて…",
-        "引き続きパーツ探しよろしくね！"
+        "引きつづきパーツさがしよろしくね！"
     };
 
     private string[] dialogueTextsAfterChoiceB = new string[]
     {
-        "ほんと！私は土台見つけたから見つけたパーツを組み合わせよう！",
+        "ほんと！わたしは土台見つけたから見つけたパーツを組み合わせよう！",
         "ありがとう、あなたのおかげでオルゴールが戻ってきた！",
         "お礼にパンあげる！",
         "うちがパン屋だから何か困ったことがあったら来てね！"
