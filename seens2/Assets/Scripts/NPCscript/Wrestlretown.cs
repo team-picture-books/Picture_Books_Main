@@ -1,7 +1,8 @@
 using UnityEngine;
 using TMPro;  // TextMeshProを使用するための名前空間を追加
 using System.Collections.Generic;
-public class NPCInteraction : MonoBehaviour
+
+public class Wrestlretown : MonoBehaviour
 {
     public GameObject player;
     public GameObject talkButton;
@@ -13,25 +14,25 @@ public class NPCInteraction : MonoBehaviour
     public DialogueLoader dialogueLoader;
     public int npcID;
     public Transform npcHead;
-    public bool hasChoices;
-    public List<string> choices;
-    public List<int> correspondingNPCIDs;
-    public GameObject choiceUI;
-    public TextMeshProUGUI[] choiceTexts;
+    public DoorInteraction KeyDoor1;
+    public DoorInteraction KeyDoor2;
+
+    // アイテム関連の変数
+    public bool canGiveItem = false;  // アイテムを渡せるNPCかどうか
+    public GameObject itemUI;         // アイテムを表示するUI
 
     private List<DialogueLoader.Dialogue> dialogues;
     private int currentDialogueIndex = 0;
     private Camera mainCamera;
     private PlayerController playerController;
     private bool isTalking = false;
-    private bool choicesDisplayed = false;
 
     void Start()
     {
         mainCamera = Camera.main;
         playerController = player.GetComponent<PlayerController>();
         dialogues = dialogueLoader.GetDialoguesForNPC(npcID);
-        choiceUI.SetActive(false);
+        itemUI.SetActive(false);  // アイテムUIは初期状態では非表示
     }
 
     void Update()
@@ -68,12 +69,6 @@ public class NPCInteraction : MonoBehaviour
         if (isTalking && (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z)))
         {
             ShowNextDialogue();
-        }
-
-        // 選択肢UIが表示されている場合のみ選択肢の入力を受け付ける
-        if (choiceUI.activeSelf)
-        {
-            HandleChoiceInput();
         }
     }
 
@@ -127,71 +122,28 @@ public class NPCInteraction : MonoBehaviour
         isTalking = false;
         npcSpeechBubble.SetActive(false);
         playerSpeechBubble.SetActive(false);
+        playerController.canMove = true;  // 会話が終了した後に移動可能にする
 
-        // 会話が終了した後に選択肢を表示する場合、移動を制限
-        if (!choicesDisplayed && hasChoices && choices.Count > 0)
+        // アイテムをもらう処理
+        if (canGiveItem)
         {
-            DisplayChoices();
-            playerController.canMove = false;  // 選択肢が表示されている間は移動を制限
-            choicesDisplayed = true;
+            GiveItem();
         }
-        else
-        {
-            playerController.canMove = true;  // それ以外は移動可能にする
-            Debug.Log("会話が終了しましたが、選択肢はありません。");
-        }
+
+        Debug.Log("会話が終了しました。");
     }
 
-    private void DisplayChoices()
+    private void GiveItem()
     {
-        choiceUI.SetActive(true);
+        // アイテムUIを表示
+        itemUI.SetActive(true);
+        KeyDoor1.canOpenDoor = true;
+        KeyDoor2.canOpenDoor = true;
+        
 
-        for (int i = 0; i < choiceTexts.Length; i++)
-        {
-            if (i < choices.Count)
-            {
-                choiceTexts[i].text = choices[i];
-                choiceTexts[i].transform.parent.gameObject.SetActive(true);
-            }
-            else
-            {
-                choiceTexts[i].transform.parent.gameObject.SetActive(false);
-            }
-        }
-    }
+        // アイテムを取得したことをDebug.Logで通知
+        Debug.Log("アイテムを取得しました！");
 
-    private void HandleChoiceInput()
-    {
-        for (int i = 0; i < choices.Count; i++)
-        {
-            // 選択肢UIが表示されている場合のみ、選択肢の入力を受け付ける
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))  // 1, 2, 3, ..., 9のキー入力を受け付ける
-            {
-                SelectChoice(i);
-                break;
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))  // 1, 2, 3, ..., 9のキー入力を受け付ける
-            {
-                SelectChoice(i);
-                break;
-            }
-        }
-    }
-
-    public void SelectChoice(int choiceIndex)
-    {
-        if (choiceIndex < choices.Count && choiceIndex < correspondingNPCIDs.Count)
-        {
-            npcID = correspondingNPCIDs[choiceIndex];
-            dialogues = dialogueLoader.GetDialoguesForNPC(npcID);
-            Debug.Log($"選択肢 '{choices[choiceIndex]}' が選ばれました。NPC IDが {npcID} に変更されました。");
-            choiceUI.SetActive(false);
-            OnTalkButtonPressed();
-        }
+        Debug.Log($"鍵付きドアが開けれるようになりました");
     }
 }
-
-
-
-
-

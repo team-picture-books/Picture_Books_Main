@@ -43,6 +43,7 @@ public class TownNPCInteraction : MonoBehaviour
 
             if (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z))
             {
+                playerController.canMove = false;
                 OnTalkButtonPressed();
             }
         }
