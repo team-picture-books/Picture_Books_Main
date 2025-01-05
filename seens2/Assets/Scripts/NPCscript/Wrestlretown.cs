@@ -55,7 +55,7 @@ public class Wrestlretown : MonoBehaviour
             {
                 npcSpeechBubble.SetActive(false);
                 playerSpeechBubble.SetActive(false);
-                playerController.canMove = true;
+                
             }
         }
 

@@ -15,6 +15,7 @@ public class TownMainNPCscript : MonoBehaviour
     public int npcID;
     public Transform npcHead;
     public bool cantalk = true;
+    
 
     // アイテム関連の変数
     public bool canGiveItem = false;  // アイテムを渡せるNPCかどうか
@@ -51,11 +52,12 @@ public class TownMainNPCscript : MonoBehaviour
         else
         {
             talkButton.SetActive(false);
+
             if (!isTalking)
             {
                 npcSpeechBubble.SetActive(false);
                 playerSpeechBubble.SetActive(false);
-                playerController.canMove = true;
+                
             }
         }
 

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\TextReveal.cs" />
+    <Compile Include="Assets\Scripts\ItemScript\LookAtCamer.cs" />
     <Compile Include="Assets\Scripts\NPCscript\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ItemScript\Stage4\Musicboxscript.cs" />
     <Compile Include="Assets\Scripts\NPCscript\Dialogue.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\Scripts\Gimmicscript\Stage3Door.cs" />
     <Compile Include="Assets\Scripts\StageController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Assets\Scripts\ItemScript\ItemTransfer.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\DoorButton.cs" />
     <Compile Include="Assets\Scripts\PauseGame.cs" />
+    <Compile Include="Assets\Scripts\Gimmicscript\WarpPoint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\titlescript\TextPulse.cs" />
     <Compile Include="Assets\Scripts\NPCscript\NPCInteraction.cs" />
@@ -121,15 +124,18 @@
     <Compile Include="Assets\Scripts\NPCscript\Scene6\OujiChoicescript.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\DoorInteraction.cs" />
     <Compile Include="Assets\Scripts\NPCscript\TownMainNPCscript.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage7scripts\Stage7NPC1.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\titlescript\titlescript.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\scene3scene\Scene3Transferscript.cs" />
     <Compile Include="Assets\Scripts\ItemScript\Stage4\Musicbox2script.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\Scripts\Gimmicscript\SoldierPatrol.cs" />
     <Compile Include="Assets\Scripts\ItemScript\StoryItemPickup.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\IDoor.cs" />
     <Compile Include="Assets\Scripts\titlescript\TitleStart.cs" />
+    <Compile Include="Assets\Scripts\Gimmicscript\GameManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -804,8 +810,14 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
@@ -837,11 +849,17 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>

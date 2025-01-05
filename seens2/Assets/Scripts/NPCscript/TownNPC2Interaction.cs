@@ -56,7 +56,7 @@ public class TownNPC2Interaction : MonoBehaviour
             {
                 npcSpeechBubble.SetActive(false);
                 playerSpeechBubble.SetActive(false);
-                playerController.canMove = true;
+                
             }
         }
 

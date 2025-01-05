@@ -42,21 +42,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Bijotoyaju/Bijotoyaju_Scene1.unity
     guid: 14579a41c543e2d409a961262e6a75fa
   - enabled: 1
-    path: Assets/Scenes/Ningyohime/arasuzi0.unity
-    guid: bcee30a1bde38744e9bdacbbfeb5124a
-  - enabled: 1
-    path: Assets/Scenes/Ningyohime/arasuzi1.unity
-    guid: 74553ea842350b4408b2ef2229378ed9
-  - enabled: 1
-    path: Assets/Scenes/Ningyohime/arasuzi2.unity
-    guid: e057ba2faf8f78d4680c3a3a1372d589
-  - enabled: 1
-    path: Assets/Scenes/Ningyohime/arasuzi3.unity
-    guid: c0a3d06264fde104c88b1d78c595bdc9
-  - enabled: 1
-    path: Assets/Scenes/Ningyohime/arasuzi4.unity
-    guid: ae1b4436b7ebaa5439c56ad802246f1a
-  - enabled: 1
     path: Assets/Scenes/Ningyohime/Scene4_town.unity
     guid: 79fe6b7932a37bb4fa2a393a9a440a28
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi0.unity
+    guid: b93d7db3e726be642bc23286fdee847c
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi1.unity
+    guid: 819345edd3c816e4e8d1e792d71ee42e
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi2.unity
+    guid: b120895e4c3c15146ac4e4b304fc0ff9
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi3.unity
+    guid: 3f0630d37b722554da780592ab459b34
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi4.unity
+    guid: 1485555fa9900214baa864cbe03b7176
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/End1.unity
+    guid: d9805b8055c9a7a419883f09183a4023
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/End2.unity
+    guid: a58687a2c283d7649afce99535489d92
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/End3.unity
+    guid: 34b3c38db0699aa48af52181232c869d
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/End4.unity
+    guid: 6f36e9cc39f5dc84d83fa8a3acb75498
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Secne5_Nighttown.unity
+    guid: edf9f8cb526777b4dab97b206eca7f0a
   m_configObjects: {}

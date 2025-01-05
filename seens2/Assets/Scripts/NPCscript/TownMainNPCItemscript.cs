@@ -61,6 +61,7 @@ public class TownMainNPCItemscript : MonoBehaviour
 
             if (Input.GetKeyDown(interactKey) && !isDialogueActive && townMainNPCscript.cantalk == false || Input.GetButtonDown("Bbutton") && !isDialogueActive && townMainNPCscript.cantalk == false)
             {
+                
                 StartDialogue();
             }
         }

@@ -724,11 +724,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7207304072357709604, guid: d51916a4beaf2d948bbc405a6e9a3091, type: 3}
       propertyPath: lines.Array.data[6]
-      value: "\u3044\u3057\u304D\u3092\u5931\u3063\u3066\u3057\u307E\u3044\u307E\u3057\u305F\r\n"
+      value: "\u3044\u3057\u304D\u3092\u3046\u3057\u306A\u3063\u3066\u3057\u307E\u3044\u307E\u3057\u305F\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7207304072357709604, guid: d51916a4beaf2d948bbc405a6e9a3091, type: 3}
       propertyPath: lines.Array.data[7]
-      value: "\u304D\u305C\u3064\u3057\u305F\u4EBA\u9B5A\u3072\u3081\u306F\u3084\u3055\u3057\u3044\u753A\u5A18\u306B\u52A9\u3051\u3089\u308C\u307E\u3057\u305F\r\n"
+      value: "\u304D\u305C\u3064\u3057\u305F\u4EBA\u9B5A\u3072\u3081\u306F\u3084\u3055\u3057\u3044\u753A\u3080\u3059\u3081\u306B\u52A9\u3051\u3089\u308C\u307E\u3057\u305F\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 7207304072357709604, guid: d51916a4beaf2d948bbc405a6e9a3091, type: 3}
       propertyPath: lines.Array.data[8]
@@ -736,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7207304072357709604, guid: d51916a4beaf2d948bbc405a6e9a3091, type: 3}
       propertyPath: lines.Array.data[9]
-      value: "\u307E\u3061\u3080\u3059\u3081\u306F\u306A\u304F\u3057\u305F\u30AA\u30EB\u30B4\u30FC\u30EB\u306E\u30D1\u30FC\u30C4\u3092\u63A2\u3059\u306E\u3092\u624B\u4F1D\u3063\u3066\u307B\u3057\u3044\u3068\u8A00\u3044\u307E\u3057\u305F\r\n"
+      value: "\u307E\u3061\u3080\u3059\u3081\u306F\u306A\u304F\u3057\u305F\u30AA\u30EB\u30B4\u30FC\u30EB\u306E\u30D1\u30FC\u30C4\u3092\u3055\u304C\u3059\u306E\u3092\u624B\u3064\u3060\u3063\u3066\u307B\u3057\u3044\u3068\u8A00\u3044\u307E\u3057\u305F\r"
       objectReference: {fileID: 0}
     - target: {fileID: 7207304072357709604, guid: d51916a4beaf2d948bbc405a6e9a3091, type: 3}
       propertyPath: lines.Array.data[10]
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -79.00098, y: 0, z: 92.158936, w: 268.34946}
+  m_margin: {x: 1.4923706, y: 0, z: -5.4924316, w: -2.565857}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -878,8 +878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 85.99011, y: -209}
-  m_SizeDelta: {x: 1869.5564, y: 831.6364}
+  m_AnchoredPosition: {x: -0.007967, y: -0.0044594}
+  m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

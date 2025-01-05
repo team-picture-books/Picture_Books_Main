@@ -30,7 +30,11 @@ public class TownNPCInteraction : MonoBehaviour
         mainCamera = Camera.main;
         playerController = player.GetComponent<PlayerController>();
         dialogues = dialogueLoader.GetDialoguesForNPC(npcID);
-        itemUI.SetActive(false);  // アイテムUIは初期状態では非表示
+        if(itemUI != null)
+        {
+            itemUI.SetActive(false);  // アイテムUIは初期状態では非表示
+
+        }
     }
 
     void Update()
@@ -54,7 +58,7 @@ public class TownNPCInteraction : MonoBehaviour
             {
                 npcSpeechBubble.SetActive(false);
                 playerSpeechBubble.SetActive(false);
-                playerController.canMove = true;
+                
             }
         }
 
