@@ -627,6 +627,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 452302808}
     - target: {fileID: 7207304072357709604, guid: d51916a4beaf2d948bbc405a6e9a3091, type: 3}
+      propertyPath: nextSceneName
+      value: Stage3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7207304072357709604, guid: d51916a4beaf2d948bbc405a6e9a3091, type: 3}
       propertyPath: lines.Array.size
       value: 11
       objectReference: {fileID: 0}

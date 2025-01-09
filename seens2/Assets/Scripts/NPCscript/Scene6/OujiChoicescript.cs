@@ -17,10 +17,13 @@ public class OujiChoicescript : MonoBehaviour
     public string scene3; // シーン3の名前
     public string scene4; // シーン4の名前
 
+    public AudioSource seSource;
+    private PlayerController playerController;
     private bool isNearObject = false;
 
     void Start()
     {
+        playerController = player.GetComponent<PlayerController>();
         interactionUI.SetActive(false); // 初期状態で非表示
         choiceUI.SetActive(false);     // 初期状態で非表示
     }
@@ -46,6 +49,12 @@ public class OujiChoicescript : MonoBehaviour
         // 近くでキーを押したら選択肢UIを表示
         if (isNearObject && Input.GetKeyDown(KeyCode.E)|| isNearObject && Input.GetButtonDown("Bbutton")) // "E"キーで選択肢を表示
         {
+            if (seSource != null)
+            {
+                seSource.Play();
+
+            }
+            playerController.canMove = false;
             choiceUI.SetActive(true);
             choiceText.text = "わたしがとるべき行動は...\nY. なぐらない\nRB. よわくたたく\nA. そこそこつよくたたく\nX. なぐる";
         }
@@ -55,21 +64,41 @@ public class OujiChoicescript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetButtonDown("Ybutton")) // "1"キー
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 SceneManager.LoadScene(scene1); // シーン1に移行
                 Debug.Log("おぼえるを選択しました。");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("RBbutton")) // "2"キー
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 SceneManager.LoadScene(scene2); // シーン2に移行
                 Debug.Log("おぼえないを選択しました。");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3)|| Input.GetButtonDown("Abutton")) // "3"キー
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 SceneManager.LoadScene(scene3); // シーン3に移行
                 Debug.Log("じっと見るを選択しました。");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha4)|| Input.GetButtonDown("Xbutton")) // "4"キー
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 SceneManager.LoadScene(scene4); // シーン4に移行
                 Debug.Log("通り過ぎるを選択しました。");
             }

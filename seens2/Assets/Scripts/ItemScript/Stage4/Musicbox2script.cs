@@ -8,6 +8,7 @@ public class Musicbox2script : MonoBehaviour
     public float interactionDistance = 3.0f; // アイテムに近づける距離
     public KeyCode interactKey = KeyCode.E; // インタラクト用のキー
     public Scene3Transferscript scene3Transferscript;
+    public ToggleObject ToggleObject;
 
     private bool isNearItem = false; // プレイヤーがアイテムに近いかどうか
 
@@ -52,5 +53,7 @@ public class Musicbox2script : MonoBehaviour
         {
             Debug.Log("item2falag true");
         }
+        ToggleObject.toggleobeject();
+
     }
 }

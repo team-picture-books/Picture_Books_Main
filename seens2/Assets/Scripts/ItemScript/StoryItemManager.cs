@@ -20,6 +20,10 @@ public class StoryItemManager : MonoBehaviour
     private GameObject player; // プレイヤーオブジェクト
     private Coroutine blinkCoroutine; // アイコン点滅用コルーチン
 
+    private bool cantransfer = false;
+
+    public PlayerController playerController;
+
     void Start()
     {
         // アイテム取得フラグを初期化
@@ -32,31 +36,73 @@ public class StoryItemManager : MonoBehaviour
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
         // アイテム選択処理 (1～4キーでアイテムを選択)
-        for (int i = 0; i < itemObjects.Length; i++)
+        //for (int i = 0; i < itemObjects.Length; i++)
+        //{
+        //    if (Input.GetKeyDown(KeyCode.Alpha1 + i)) // キー 1, 2, 3, 4 に対応
+        //    {
+        //        if (itemAcquiredFlags[i]) // 取得済みアイテムのみ選択可能
+        //        {
+        //            SelectItem(i);
+        //        }
+        //        else
+        //        {
+        //            Debug.Log($"アイテム{i + 1}は未取得です。");
+        //        }
+        //    }
+        //}
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Ybutton"))
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) // キー 1, 2, 3, 4 に対応
+            cantransfer = !cantransfer;
+            Debug.Log("アイテム選択中です");
+            if (cantransfer)
             {
-                if (itemAcquiredFlags[i]) // 取得済みアイテムのみ選択可能
-                {
-                    SelectItem(i);
-                }
-                else
-                {
-                    Debug.Log($"アイテム{i + 1}は未取得です。");
-                }
+                playerController.canMove = false;
+            }
+            if (!cantransfer)
+            {
+                playerController.canMove = true;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1) && cantransfer|| Input.GetButtonDown("Xbutton") && cantransfer)
+        {
+            if (itemAcquiredFlags[0])
+            {
+                SelectItem(0);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && cantransfer || Input.GetButtonDown("Abutton") && cantransfer)
+        {
+            if (itemAcquiredFlags[1])
+            {
+                SelectItem(1);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3) && cantransfer || Input.GetButtonDown("Bbutton") && cantransfer)
+        {
+            if (itemAcquiredFlags[2])
+            {
+                SelectItem(2);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4) && cantransfer || Input.GetButtonDown("RBbutton") && cantransfer)
+        {
+            if (itemAcquiredFlags[3])
+            {
+                SelectItem(3);
             }
         }
 
         // NPCとのインタラクション処理
         if (distance <= interactDistance)
         {
-            if (selectedItemIndex >= 0 && Input.GetKeyDown(KeyCode.E))
+            if (selectedItemIndex >= 0 && Input.GetKeyDown(KeyCode.F)|| selectedItemIndex >= 0 && Input.GetButtonDown("Abutton"))
             {
                 TransferItem();
             }
             //if (selectedItemIndex >= 0 && Input.GetButtonDown("Bbutton"))
             //{
-              //  TransferItem();
+            //  TransferItem();
             //}
         }
     }
@@ -143,7 +189,9 @@ public class StoryItemManager : MonoBehaviour
             }
 
             // 渡したアイテムを非表示にする
+            StopCoroutine(blinkCoroutine);
             SetIconVisibility(selectedItemIndex, false);
+            
             selectedItemIndex = -1;
 
             // 必要な数のアイテムを渡したら正解率をチェック
@@ -170,4 +218,3 @@ public class StoryItemManager : MonoBehaviour
         }
     }
 }
-

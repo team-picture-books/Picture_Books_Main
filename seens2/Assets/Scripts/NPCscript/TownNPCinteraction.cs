@@ -19,6 +19,9 @@ public class TownNPCInteraction : MonoBehaviour
     public bool canGiveItem = false;  // アイテムを渡せるNPCかどうか
     public GameObject itemUI;         // アイテムを表示するUI
 
+    private AudioSource audioSource; // AudioSourceコンポーネント
+    [SerializeField] private AudioClip seClip; // 再生するSEの音声クリップ
+
     private List<DialogueLoader.Dialogue> dialogues;
     private int currentDialogueIndex = 0;
     private Camera mainCamera;
@@ -27,6 +30,10 @@ public class TownNPCInteraction : MonoBehaviour
 
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false; // 再生しない設定
+        audioSource.clip = seClip; // 音声クリップを設定
+
         mainCamera = Camera.main;
         playerController = player.GetComponent<PlayerController>();
         dialogues = dialogueLoader.GetDialoguesForNPC(npcID);
@@ -49,6 +56,7 @@ public class TownNPCInteraction : MonoBehaviour
             {
                 playerController.canMove = false;
                 OnTalkButtonPressed();
+                PlaySE();
             }
         }
         else
@@ -71,6 +79,7 @@ public class TownNPCInteraction : MonoBehaviour
         // 会話が進んでいる場合は次のセリフに進む
         if (isTalking && (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z)))
         {
+            PlaySE();
             ShowNextDialogue();
         }
     }
@@ -143,6 +152,17 @@ public class TownNPCInteraction : MonoBehaviour
 
         // アイテムを取得したことをDebug.Logで通知
         Debug.Log("アイテムを取得しました！");
+    }
+    private void PlaySE()
+    {
+        if (seClip != null)
+        {
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.Log("SEクリップが設定されていません！");
+        }
     }
 }
 

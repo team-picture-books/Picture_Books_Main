@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;  // TextMeshProを使用するための名前空間を追加
+using System.Collections;
 using System.Collections.Generic;
 
 public class TownMainNPCscript : MonoBehaviour
@@ -20,6 +21,8 @@ public class TownMainNPCscript : MonoBehaviour
     // アイテム関連の変数
     public bool canGiveItem = false;  // アイテムを渡せるNPCかどうか
     public GameObject itemUI;         // アイテムを表示するUI
+    public AudioSource seSource;
+
 
     private List<DialogueLoader.Dialogue> dialogues;
     private int currentDialogueIndex = 0;
@@ -32,7 +35,11 @@ public class TownMainNPCscript : MonoBehaviour
         mainCamera = Camera.main;
         playerController = player.GetComponent<PlayerController>();
         dialogues = dialogueLoader.GetDialoguesForNPC(npcID);
-        itemUI.SetActive(false);  // アイテムUIは初期状態では非表示
+        if(itemUI != null)
+        {
+            itemUI.SetActive(false);  // アイテムUIは初期状態では非表示
+
+        }
     }
 
     void Update()
@@ -45,6 +52,11 @@ public class TownMainNPCscript : MonoBehaviour
 
             if (Input.GetButtonDown("Bbutton") && cantalk == true || Input.GetKeyDown(KeyCode.Z) && cantalk == true)
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 playerController.canMove = false;
                 OnTalkButtonPressed();
             }
@@ -70,6 +82,11 @@ public class TownMainNPCscript : MonoBehaviour
         // 会話が進んでいる場合は次のセリフに進む
         if (isTalking && (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z)))
         {
+            if (seSource != null)
+            {
+                seSource.Play();
+
+            }
             ShowNextDialogue();
         }
     }
@@ -115,6 +132,7 @@ public class TownMainNPCscript : MonoBehaviour
         }
         else
         {
+            
             EndDialogue();
         }
     }
@@ -131,7 +149,8 @@ public class TownMainNPCscript : MonoBehaviour
         {
             GiveItem();
         }
-        cantalk = false;
+        StartCoroutine(DelayedProcess());
+
         Debug.Log("会話が終了しました。");
     }
 
@@ -142,5 +161,14 @@ public class TownMainNPCscript : MonoBehaviour
 
         // アイテムを取得したことをDebug.Logで通知
         Debug.Log("アイテムを取得しました！");
+    }
+    IEnumerator DelayedProcess()
+    {
+
+        // 1秒待機
+        yield return new WaitForSeconds(0.1f);
+        cantalk = false;
+
+        Debug.Log("2行目の処理: 1秒後に実行");
     }
 }

@@ -1,6 +1,8 @@
 using UnityEngine;
 using TMPro;  // TextMeshProを使用するための名前空間を追加
 using System.Collections.Generic;
+using System.Collections;
+
 
 public class Wrestlretown : MonoBehaviour
 {
@@ -20,6 +22,10 @@ public class Wrestlretown : MonoBehaviour
     // アイテム関連の変数
     public bool canGiveItem = false;  // アイテムを渡せるNPCかどうか
     public GameObject itemUI;         // アイテムを表示するUI
+
+    public ToggleObject ToggleObject;
+
+    public AudioSource seSource;
 
     private List<DialogueLoader.Dialogue> dialogues;
     private int currentDialogueIndex = 0;
@@ -45,6 +51,11 @@ public class Wrestlretown : MonoBehaviour
 
             if (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z))
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 OnTalkButtonPressed();
             }
         }
@@ -68,6 +79,11 @@ public class Wrestlretown : MonoBehaviour
         // 会話が進んでいる場合は次のセリフに進む
         if (isTalking && (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z)))
         {
+            if (seSource != null)
+            {
+                seSource.Play();
+
+            }
             ShowNextDialogue();
         }
     }
@@ -114,6 +130,7 @@ public class Wrestlretown : MonoBehaviour
         else
         {
             EndDialogue();
+
         }
     }
 
@@ -145,5 +162,8 @@ public class Wrestlretown : MonoBehaviour
         Debug.Log("アイテムを取得しました！");
 
         Debug.Log($"鍵付きドアが開けれるようになりました");
+        ToggleObject.toggleobeject();
+        canGiveItem = false;
+
     }
 }

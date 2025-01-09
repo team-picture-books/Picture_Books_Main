@@ -306,7 +306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &298348299
 RectTransform:
   m_ObjectHideFlags: 0
@@ -632,15 +632,9 @@ MonoBehaviour:
   menuItems:
   - {fileID: 1562677071}
   - {fileID: 535077001}
-  - {fileID: 1463975681}
-  - {fileID: 298348301}
-  - {fileID: 1911975577}
   sceneNames:
   - 
   - arasuzi0
-  - Bijotoyaju_Scene1
-  - 
-  - 
 --- !u!1 &535076998
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,7 +1494,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1463975679
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1930,7 +1924,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1911975577
 MonoBehaviour:
   m_ObjectHideFlags: 0

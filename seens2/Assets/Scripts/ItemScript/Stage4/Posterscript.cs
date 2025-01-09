@@ -14,8 +14,8 @@ public class Posterscript : MonoBehaviour
     public Sprite choiceImageSprite; // 表示する画像 (インスペクタで指定可能)
 
     private bool isNearObject = false;
-    private bool destroyFlag = false;
-    private bool keepFlag = false;
+    public bool destroyFlag = false;
+    public bool keepFlag = false;
 
     void Start()
     {
@@ -56,13 +56,13 @@ public class Posterscript : MonoBehaviour
             {
                 destroyFlag = true;
                 choiceUI.SetActive(false);
-                Debug.Log("こわすを選択しました。");
+                Debug.Log("覚えるを選択しました。");
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2)||Input.GetButtonDown("Abutton")) // "2"キー
             {
                 keepFlag = true;
                 choiceUI.SetActive(false);
-                Debug.Log("そのままにするを選択しました。");
+                Debug.Log("覚えないを選択しました。");
             }
         }
     }

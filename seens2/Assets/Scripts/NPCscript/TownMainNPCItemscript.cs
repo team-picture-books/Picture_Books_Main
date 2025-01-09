@@ -14,12 +14,14 @@ public class TownMainNPCItemscript : MonoBehaviour
     public KeyCode choice1Key = KeyCode.Alpha1; // 選択肢1
     public KeyCode choice2Key = KeyCode.Alpha2; // 選択肢2
     public Scene3Transferscript scene3Transferscript;
+    public Transform npcHead;
 
     public string scenename1;
     public string scenename2;
 
     public TownMainNPCscript townMainNPCscript;
 
+    public AudioSource seSource;
 
     private bool isNearNPC = false; // プレイヤーがNPCに近いかどうか
     private int dialogueIndex = 0; // 現在の会話インデックス
@@ -27,6 +29,10 @@ public class TownMainNPCItemscript : MonoBehaviour
     private bool isChoosing = false; // 選択肢が表示されているかどうか
     private string[] currentDialogue; // 現在の会話リスト
     private bool transferflag =false;
+    private PlayerController playerController;
+    private Camera mainCamera;
+
+
 
     // 会話データ（選択肢後のテキストを含む）
     private string[] dialogueTextsAfterChoiceA = new string[]
@@ -46,8 +52,11 @@ public class TownMainNPCItemscript : MonoBehaviour
 
     void Start()
     {
+        mainCamera = Camera.main;
         interactionUI.SetActive(false);
         dialogueUI.SetActive(false);
+        playerController = player.GetComponent<PlayerController>();
+
     }
 
     void Update()
@@ -61,7 +70,12 @@ public class TownMainNPCItemscript : MonoBehaviour
 
             if (Input.GetKeyDown(interactKey) && !isDialogueActive && townMainNPCscript.cantalk == false || Input.GetButtonDown("Bbutton") && !isDialogueActive && townMainNPCscript.cantalk == false)
             {
-                
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
+                playerController.canMove = false;
                 StartDialogue();
             }
         }
@@ -70,16 +84,31 @@ public class TownMainNPCItemscript : MonoBehaviour
             interactionUI.SetActive(false);
             isNearNPC = false;
         }
+        if (dialogueUI.activeSelf)
+        {
+            Vector3 screenPosition = mainCamera.WorldToScreenPoint(npcHead.position);
+            dialogueUI.transform.position = screenPosition;
+        }
 
         // 会話中で選択肢がある場合
         if (isChoosing)
         {
             if (Input.GetKeyDown(choice1Key) || Input.GetButtonDown("Ybutton")) // 選択肢1
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 OnChoiceSelected("A");
             }
             else if (Input.GetKeyDown(choice2Key) && scene3Transferscript.item1flag&& scene3Transferscript.item2flag&& scene3Transferscript.item3flag || Input.GetButtonDown("Abutton") && scene3Transferscript.item1flag && scene3Transferscript.item2flag && scene3Transferscript.item3flag) // 選択肢2
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 OnChoiceSelected("B");
             }
         }
@@ -87,9 +116,15 @@ public class TownMainNPCItemscript : MonoBehaviour
         // 会話中で選択肢がない場合
         if (isDialogueActive && !isChoosing && Input.GetKeyDown(nextTextKey) || isDialogueActive && !isChoosing && Input.GetButtonDown("Bbutton"))
         {
+            if (seSource != null)
+            {
+                seSource.Play();
+
+            }
             ShowNextDialogue();
         }
     }
+    
 
     void StartDialogue()
     {
@@ -138,6 +173,7 @@ public class TownMainNPCItemscript : MonoBehaviour
         else
         {
             EndDialogue();
+            playerController.canMove = true;
         }
     }
 

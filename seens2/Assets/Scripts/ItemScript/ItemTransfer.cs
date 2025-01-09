@@ -1,4 +1,4 @@
-using System.Collections; // これを追加
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,9 +10,12 @@ public class ItemTransfer : MonoBehaviour
     [SerializeField] private Image[] itemIcons;        // アイテムごとのUIアイコン
     private bool[] itemAcquiredFlags;                 // アイテム取得フラグ
     private int selectedItemIndex = -1;               // 選択中のアイテムのインデックス
-    [SerializeField] private float interactDistance = 3f; //アイテムをわたすNPCとの有効距離
+    [SerializeField] private float interactDistance = 3f; // アイテムを渡すNPCとの有効距離
     private GameObject player; // プレイヤーオブジェクト
     private Coroutine blinkCoroutine; // 点滅処理用のコルーチン
+    private bool isSelectingItem = false; // アイテム選択モードフラグ
+
+    public PlayerController playerController;
 
     void Start()
     {
@@ -25,35 +28,61 @@ public class ItemTransfer : MonoBehaviour
     {
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
-        // アイテム選択処理 (例: 1～4キーでアイテムを選択)
-        for (int i = 0; i < itemObjects.Length; i++)
+        // アイテム選択モードの切り替え
+        if (Input.GetKeyDown(KeyCode.E)||Input.GetButtonDown("Ybutton"))
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) // キー 1, 2, 3, 4 に対応
+            isSelectingItem = !isSelectingItem; // 選択モードをトグル
+            Debug.Log(isSelectingItem ? "アイテム選択モードに入りました。" : "アイテム選択モードを終了しました。");
+            if (isSelectingItem)
             {
-                if (itemAcquiredFlags[i]) // フラグを確認
-                {
-                    SelectItem(i);
-                }
-                else
-                {
-                    Debug.Log($"アイテム{i + 1}は未取得です。");
-                }
+                playerController.canMove = false;
             }
+            if (!isSelectingItem)
+            {
+                playerController.canMove = true;
+            }
+        }
+
+        // アイテム選択処理
+        if (isSelectingItem)
+        {
+            if (Input.GetKeyDown(KeyCode.Alpha1)||Input.GetButtonDown("Xbutton"))
+                TrySelectItem(0);
+            if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetButtonDown("Abutton"))
+                TrySelectItem(1);
+            if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetButtonDown("Bbutton"))
+                TrySelectItem(2);
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+                TrySelectItem(3);
         }
 
         // NPCにアイテムを渡す処理
         if (distance <= interactDistance)
         {
-            if (selectedItemIndex >= 0 && Input.GetKeyDown(KeyCode.E))
+            if (selectedItemIndex >= 0 && Input.GetKeyDown(KeyCode.F))
             {
                 TransferItem();
             }
-            
-            //if (selectedItemIndex >= 0 && Input.GetButtonDown("Bbutton"))
-            //{
-              //  TransferItem();
 
-            //}
+            if (selectedItemIndex >= 0 && Input.GetButtonDown("Abutton"))
+            {
+                TransferItem();
+            }
+        }
+    }
+
+    void TrySelectItem(int itemIndex)
+    {
+        if (itemIndex >= 0 && itemIndex < itemObjects.Length)
+        {
+            if (itemAcquiredFlags[itemIndex]) // アイテムが取得済みかチェック
+            {
+                SelectItem(itemIndex);
+            }
+            else
+            {
+                Debug.Log($"アイテム{itemIndex + 1}は未取得です。");
+            }
         }
     }
 
@@ -112,7 +141,6 @@ public class ItemTransfer : MonoBehaviour
         {
             string targetScene = sceneNames[selectedItemIndex];
             Debug.Log($"アイテム{selectedItemIndex + 1}をNPCに渡しました。シーン {targetScene} に移行します。");
-            
 
             // シーン遷移
             SceneManager.LoadScene(targetScene);
@@ -123,5 +151,3 @@ public class ItemTransfer : MonoBehaviour
         }
     }
 }
-
-

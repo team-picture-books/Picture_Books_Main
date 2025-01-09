@@ -40,7 +40,7 @@ public class Stage3Door : MonoBehaviour
             }
 
             // 指定されたキーが押されたらシーンを変更
-            if (Input.GetKeyDown(interactionKey))
+            if (Input.GetKeyDown(interactionKey) || Input.GetButtonDown("Bbutton"))
             {
                 SceneManager.LoadScene(targetSceneName);
             }

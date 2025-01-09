@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\NPCscript\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ItemScript\Stage4\Musicboxscript.cs" />
     <Compile Include="Assets\Scripts\NPCscript\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage5scripts\Stage5NPC.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\HingedDoor.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\NPCscript\Wrestlretown.cs" />
@@ -79,6 +80,8 @@
     <Compile Include="Assets\Scripts\Gimmicscript\HingedDoor2.cs" />
     <Compile Include="Assets\Scripts\titlescript\TextFade.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\Scripts\Soundscript\OnButtonSE.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage2\MajoNPC.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\Stage3Door.cs" />
@@ -95,14 +98,18 @@
     <Compile Include="Assets\Scripts\ItemScript\Stage4\Posterscript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\Scripts\jump.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Scripts\ItemScript\ToggleObject.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage7scripts\Stage7NPC2.cs" />
     <Compile Include="Assets\Scripts\DialogueLoader.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage2\MajoNPC2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\ItemScript\Stage4\NewBehaviourScript.cs" />
     <Compile Include="Assets\Scripts\ItemScript\ItemTransfer.cs" />
@@ -115,6 +122,7 @@
     <Compile Include="Assets\Scripts\NewPlayerCon.cs" />
     <Compile Include="Assets\Scripts\ItemScript\StoryItemManager.cs" />
     <Compile Include="Assets\Scripts\menuscript\MenuContoroller.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage8scripts\Stage8NPC.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
     <Compile Include="Assets\Scripts\CameraContol.cs" />
     <Compile Include="Assets\Scripts\NPCscript\TownNPCinteraction.cs" />
@@ -129,6 +137,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\titlescript\titlescript.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\scene3scene\Scene3Transferscript.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage7scripts\Stage7NPC.cs" />
     <Compile Include="Assets\Scripts\ItemScript\Stage4\Musicbox2script.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\SoldierPatrol.cs" />
@@ -136,6 +145,7 @@
     <Compile Include="Assets\Scripts\Gimmicscript\IDoor.cs" />
     <Compile Include="Assets\Scripts\titlescript\TitleStart.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\GameManager.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\NightTownMainNPC.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -855,11 +865,11 @@
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Flow">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>

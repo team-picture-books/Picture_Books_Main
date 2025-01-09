@@ -21,6 +21,9 @@ public class TownNPC2Interaction : MonoBehaviour
     public bool canGiveItem = false;  // アイテムを渡せるNPCかどうか
     public GameObject itemUI;         // アイテムを表示するUI
 
+    public ToggleObject ToggleObject;
+    public AudioSource seSource;
+
     private List<DialogueLoader.Dialogue> dialogues;
     private int currentDialogueIndex = 0;
     private Camera mainCamera;
@@ -45,6 +48,11 @@ public class TownNPC2Interaction : MonoBehaviour
 
             if (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z))
             {
+                if (seSource != null)
+                {
+                    seSource.Play();
+
+                }
                 playerController.canMove = false;
                 OnTalkButtonPressed();
             }
@@ -69,6 +77,11 @@ public class TownNPC2Interaction : MonoBehaviour
         // 会話が進んでいる場合は次のセリフに進む
         if (isTalking && (Input.GetButtonDown("Bbutton") || Input.GetKeyDown(KeyCode.Z)))
         {
+            if (seSource != null)
+            {
+                seSource.Play();
+
+            }
             ShowNextDialogue();
         }
     }
@@ -138,6 +151,7 @@ public class TownNPC2Interaction : MonoBehaviour
     {
         // アイテムUIを表示
         itemUI.SetActive(true);
+        canGiveItem = false;
 
         // アイテムを取得したことをDebug.Logで通知
         Debug.Log("アイテムを取得しました！");
@@ -146,5 +160,6 @@ public class TownNPC2Interaction : MonoBehaviour
         {
             Debug.Log("item3falag true");
         }
+        ToggleObject.toggleobeject();
     }
 }

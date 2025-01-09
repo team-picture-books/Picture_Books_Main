@@ -54,7 +54,7 @@ public class NPCInteraction : MonoBehaviour
             {
                 npcSpeechBubble.SetActive(false);
                 playerSpeechBubble.SetActive(false);
-                playerController.canMove = true;
+                //playerController.canMove = true;
             }
         }
 
@@ -127,6 +127,7 @@ public class NPCInteraction : MonoBehaviour
         isTalking = false;
         npcSpeechBubble.SetActive(false);
         playerSpeechBubble.SetActive(false);
+        playerController.canMove = true;
 
         // 会話が終了した後に選択肢を表示する場合、移動を制限
         if (!choicesDisplayed && hasChoices && choices.Count > 0)

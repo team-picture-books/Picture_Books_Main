@@ -9,11 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScene.unity
     guid: 5a6289dd2f606ef4dbfc86389ae4ea7c
   - enabled: 1
-    path: Assets/Scenes/Stage1_1.unity
-    guid: 464c6fbe5d8c75d44a9918ce97cad391
-  - enabled: 1
     path: Assets/Scenes/MenuScene.unity
     guid: 0a01d7d0b679e4d4cb1a0f151119596a
+  - enabled: 1
+    path: Assets/Scenes/Stage1_1.unity
+    guid: 464c6fbe5d8c75d44a9918ce97cad391
   - enabled: 1
     path: Assets/Scenes/Ningyohime/Stage2.unity
     guid: cc0eae8289a22a8449988767bc802049

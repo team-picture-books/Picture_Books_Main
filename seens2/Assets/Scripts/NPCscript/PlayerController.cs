@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     public float gravity = 100f;
 
     public float pickupRadius = 20f;
+    public GameObject intaractionUI;
+    
 
     // プレイヤーの移動や視点移動を制御するフラグ
     public bool canMove = true;
@@ -22,10 +24,18 @@ public class PlayerController : MonoBehaviour
     private List<GameObject> inventory = new List<GameObject>(); // インベントリ
 
     public Transform soldier;
+
+    public GameObject potUI;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
         // 初期状態でアイテムバーを非表示に設定
+        if(potUI != null)
+        {
+            potUI.SetActive(false);
+        }
+        
         
     }
 
@@ -62,11 +72,15 @@ public class PlayerController : MonoBehaviour
             controller.Move(moveDirection * moveSpeed * Time.deltaTime);
             
         }
-        // ツボ拾得処理
-        HandlePotPickup();
+        if (potPrefab != null)
+        {
+            // ツボ拾得処理
+            HandlePotPickup();
 
-        // ツボ再設置処理
-        HandlePotPlacement();
+            // ツボ再設置処理
+            HandlePotPlacement();
+        }
+        
     }
     private void HandlePotPickup()
     {
@@ -77,21 +91,36 @@ public class PlayerController : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, pot.transform.position) <= pickupRadius)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                if(intaractionUI != null)
+                {
+                    intaractionUI.SetActive(true);
+                    Debug.Log("ツボの範囲内です");
+                }
+                if (Input.GetKeyDown(KeyCode.E) || Input.GetButtonDown("Bbutton"))
                 {
                     // ツボを拾う
                     inventory.Add(pot);
                     pot.SetActive(false); // ツボを非表示にする
+                    potUI.SetActive(true);//つぼUIを表示
                     Debug.Log("ツボを拾いました！");
                     break;
                 }
             }
+            else
+            {
+                if (intaractionUI != null)
+                {
+                    intaractionUI.SetActive(false);
+                }
+            }
+            
         }
     }
     private void HandlePotPlacement()
     {
-        if (inventory.Count > 0 && Input.GetKeyDown(KeyCode.Space))
+        if (inventory.Count > 0 && Input.GetKeyDown(KeyCode.Space)|| inventory.Count > 0 && Input.GetButtonDown("Abutton"))
         {
+            potUI.SetActive(false);
             // 配置位置を計算
             Vector3 placementPosition = transform.position + transform.forward * 2f;
 

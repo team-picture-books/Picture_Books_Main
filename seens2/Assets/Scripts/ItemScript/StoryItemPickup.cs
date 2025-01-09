@@ -9,9 +9,11 @@ public class StoryItemPickup : MonoBehaviour
     [SerializeField] private float interactDistance = 3f; // アイテムとの有効距離
     [SerializeField] private int itemIndex;            // アイテムインデックス
     [SerializeField] private StoryItemManager storyItemManager; // StoryItemManager スクリプトの参照
+    public ToggleObject ToggleObject;
 
     private GameObject player;
     private bool itemAcquired = false; // アイテムが取得済みか
+
 
     void Start()
     {
@@ -50,12 +52,21 @@ public class StoryItemPickup : MonoBehaviour
             // プレイヤーが E キーを押した場合にアイテム取得処理を実行
             if (Input.GetKeyDown(KeyCode.E))
             {
+
                 AcquireItem();
+                ToggleObject.toggleobeject();
+
             }
             if (Input.GetButtonDown("Bbutton"))
             {
+
                 AcquireItem();
+                ToggleObject.toggleobeject();
+
             }
+
+
+
         }
         else
         {

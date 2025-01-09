@@ -11,6 +11,8 @@ public class ItemPickup : MonoBehaviour
     [SerializeField] private int itemIndex;           // アイテムインデックス
     [SerializeField] private ItemTransfer itemTransfer; // ItemTransfer スクリプトの参照
 
+    public ToggleObject ToggleObject;
+
     private GameObject player; // プレイヤーオブジェクト
 
     void Start()
@@ -41,10 +43,13 @@ public class ItemPickup : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E)) // 例: Eキーでアイテム取得
             {
                 AcquireItem();
+                ToggleObject.toggleobeject();
             }
             if (Input.GetButtonDown("Bbutton")) // 例: Eキーでアイテム取得
             {
                 AcquireItem();
+                ToggleObject.toggleobeject();
+
             }
         }
         else
