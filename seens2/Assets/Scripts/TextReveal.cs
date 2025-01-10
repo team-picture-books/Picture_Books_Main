@@ -3,6 +3,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class TextReveal : MonoBehaviour
 {
     [Header("Text Settings")]
@@ -19,6 +20,9 @@ public class TextReveal : MonoBehaviour
     [Header("Scene Transition")]
     [Tooltip("Name of the scene to load after all lines are revealed.")]
     public string nextSceneName;
+
+    public AudioSource seSource;
+
 
     private int currentLineIndex = 0;
     private bool isFading = false;
@@ -54,8 +58,13 @@ public class TextReveal : MonoBehaviour
                 SceneManager.LoadScene(nextSceneName);
             }
         }
-        if (Input.GetButtonDown("Bbutton"))
+        if (Input.GetButtonDown("Bbutton") && !isFading)
         {
+            if (seSource != null)
+            {
+                seSource.Play();
+
+            }
             if (currentLineIndex < lines.Length)
             {
                 StartCoroutine(RevealText());

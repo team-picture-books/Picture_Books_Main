@@ -52,7 +52,7 @@ EditorBuildSettings:
     guid: 819345edd3c816e4e8d1e792d71ee42e
   - enabled: 1
     path: Assets/Scenes/Ningyohime/arasuzi/arasuzi2.unity
-    guid: b120895e4c3c15146ac4e4b304fc0ff9
+    guid: 04a5879763e1abd43be34810b94b09d1
   - enabled: 1
     path: Assets/Scenes/Ningyohime/arasuzi/arasuzi3.unity
     guid: 3f0630d37b722554da780592ab459b34
@@ -60,17 +60,50 @@ EditorBuildSettings:
     path: Assets/Scenes/Ningyohime/arasuzi/arasuzi4.unity
     guid: 1485555fa9900214baa864cbe03b7176
   - enabled: 1
-    path: Assets/Scenes/Ningyohime/End1.unity
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi5.unity
+    guid: b120895e4c3c15146ac4e4b304fc0ff9
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi6.unity
+    guid: a3b629edb2554084ebd01646702537f3
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi7.unity
+    guid: 4370bd0abd6eda547a42a8acb670ee9c
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/arasuzi/arasuzi8.unity
+    guid: 2f2dddaf80cd7af449e92f07a32483f1
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End1.unity
     guid: d9805b8055c9a7a419883f09183a4023
   - enabled: 1
-    path: Assets/Scenes/Ningyohime/End2.unity
+    path: Assets/Scenes/Ningyohime/Ending/End2.unity
     guid: a58687a2c283d7649afce99535489d92
   - enabled: 1
-    path: Assets/Scenes/Ningyohime/End3.unity
+    path: Assets/Scenes/Ningyohime/Ending/End2 1.unity
+    guid: d6b98529d1967c640855ee8dd6ad4212
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End2 2.unity
+    guid: 9bf4426b35d58d446ade4a32d37d1373
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End2 3.unity
+    guid: 01612215c46d5834fa22361e86f13e8f
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End3.unity
     guid: 34b3c38db0699aa48af52181232c869d
   - enabled: 1
-    path: Assets/Scenes/Ningyohime/End4.unity
+    path: Assets/Scenes/Ningyohime/Ending/End3 1.unity
+    guid: f764a611c19adf740a521fd141647c69
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End3 2.unity
+    guid: bafa00138d64b794ca11e9ce77f6f055
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End4.unity
     guid: 6f36e9cc39f5dc84d83fa8a3acb75498
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End4 1.unity
+    guid: 9ac2a81a3902ebb46a74e25b126189d1
+  - enabled: 1
+    path: Assets/Scenes/Ningyohime/Ending/End4 2.unity
+    guid: 7d43b9c07a5aa804fb0e6059939ade86
   - enabled: 1
     path: Assets/Scenes/Ningyohime/Secne5_Nighttown.unity
     guid: edf9f8cb526777b4dab97b206eca7f0a

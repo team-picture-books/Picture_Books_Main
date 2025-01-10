@@ -73,6 +73,8 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
     <Compile Include="Assets\Scripts\NPCscript\TownNPC2Interaction.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage5scripts\Stage5NPC2.cs" />
+    <Compile Include="Assets\Scripts\ItemScript\Stage7\Itemget.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\Scripts\NPCscript\TownMainNPCItemscript.cs" />
@@ -100,6 +102,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\jump.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\NightTownMainNPC2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
     <Compile Include="Assets\Scripts\ItemScript\ToggleObject.cs" />
@@ -145,7 +148,9 @@
     <Compile Include="Assets\Scripts\Gimmicscript\IDoor.cs" />
     <Compile Include="Assets\Scripts\titlescript\TitleStart.cs" />
     <Compile Include="Assets\Scripts\Gimmicscript\GameManager.cs" />
+    <Compile Include="Assets\Scripts\NPCscript\Stage5scripts\Stage5NPC3.cs" />
     <Compile Include="Assets\Scripts\NPCscript\NightTownMainNPC.cs" />
+    <Compile Include="Assets\Scripts\endscripts\Endmaster.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
   <ItemGroup>

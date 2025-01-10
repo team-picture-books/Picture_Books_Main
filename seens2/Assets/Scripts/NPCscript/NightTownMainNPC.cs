@@ -24,6 +24,8 @@ public class NightTownMainNPC : MonoBehaviour
 
     public AudioSource seSource;
 
+    public NightTownMainNPC2 npc;
+
 
     private bool isNearNPC = false; // プレイヤーがNPCに近いかどうか
     private int dialogueIndex = 0; // 現在の会話インデックス
@@ -42,17 +44,12 @@ public class NightTownMainNPC : MonoBehaviour
     // 会話データ（選択肢後のテキストを含む）
     private string[] dialogueTextsAfterChoiceA = new string[]
     {
-        "そうなの、わたしはオルゴールの土台は見つけたんだけど",
-        "他のパーツが見当たらなくて…",
-        "引きつづきパーツさがしよろしくね！"
+        "いたっ！"
     };
 
     private string[] dialogueTextsAfterChoiceB = new string[]
     {
-        "ほんと！わたしは土台見つけたから見つけたパーツを組み合わせよう！",
-        "ありがとう、あなたのおかげでオルゴールが戻ってきた！",
-        "お礼にパンあげる！",
-        "うちがパン屋だから何か困ったことがあったら来てね！"
+        "イタッ！"
     };
 
     void Start()
@@ -74,16 +71,16 @@ public class NightTownMainNPC : MonoBehaviour
             interactionUI.SetActive(true);
             isNearNPC = true;
 
-            if (Input.GetKeyDown(interactKey) && !isDialogueActive|| Input.GetButtonDown("Bbutton") && !isDialogueActive)
-            {
-                if (seSource != null)
-                {
-                    seSource.Play();
+            //if (Input.GetKeyDown(interactKey) && !isDialogueActive && !npc.Cantalk|| Input.GetButtonDown("Bbutton") && !isDialogueActive && !npc.Cantalk)
+            //{
+            //    if (seSource != null)
+            //    {
+            //        seSource.Play();
 
-                }
-                playerController.canMove = false;
-                StartDialogue();
-            }
+            //    }
+            //    playerController.canMove = false;
+            //    StartDialogue();
+            //}
         }
         else
         {
@@ -136,13 +133,13 @@ public class NightTownMainNPC : MonoBehaviour
         }
     }
 
-    void StartDialogue()
+    public void StartDialogue()
     {
         interactionUI.SetActive(false);
         dialogueUI.SetActive(true);
         dialogueIndex = 0;
 
-        npcDialogueText.text = "いらっしゃーい\nY: いいえ\nA:はい";
+        npcDialogueText.text = "そ、そんな！じゃあ、いそいでわたしをたたいて！\nY:よわくたたく\nA:つよくたたく";
 
         isChoosing = true; // 選択肢を有効化
         isDialogueActive = true;

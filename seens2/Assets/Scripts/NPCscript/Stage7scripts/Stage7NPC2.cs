@@ -29,6 +29,7 @@ public class Stage7NPC2 : MonoBehaviour
     private Camera mainCamera;
     private PlayerController playerController;
     private bool isTalking = false;
+    private bool isTalked = false;
 
     void Start()
     {
@@ -48,6 +49,12 @@ public class Stage7NPC2 : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.DumbbellFlag && npcID == 1 && isTalked || GameManager.Instance.ProteinFlag && npcID == 1 && isTalked || GameManager.Instance.RopeFlag && npcID == 1 && isTalked)
+        {
+            Debug.Log("レスラーでシーン分岐するようになった");
+            npcID = 2;
+            dialogues = dialogueLoader.GetDialoguesForNPC(npcID);
+        }
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
         if (distance <= interactionDistance && !isTalking)
@@ -127,7 +134,15 @@ public class Stage7NPC2 : MonoBehaviour
         }
         else
         {
-            EndDialogue();
+            if(npcID == 1)
+            {
+                EndDialogue();
+                isTalked = true;
+            }
+            else if(npcID == 2)
+            {
+                EndDialogue2();
+            }
         }
     }
 
@@ -143,7 +158,22 @@ public class Stage7NPC2 : MonoBehaviour
         {
             GiveItem();
         }
-        if(GameManager.Instance.DumbbellFlag || GameManager.Instance.ProteinFlag || GameManager.Instance.RopeFlag)
+       
+        Debug.Log("会話が終了しました。");
+    }
+    private void EndDialogue2()
+    {
+        isTalking = false;
+        npcSpeechBubble.SetActive(false);
+        playerSpeechBubble.SetActive(false);
+        playerController.canMove = true;  // 会話が終了した後に移動可能にする
+
+        // アイテムをもらう処理
+        if (canGiveItem)
+        {
+            GiveItem();
+        }
+        if (GameManager.Instance.DumbbellFlag || GameManager.Instance.ProteinFlag || GameManager.Instance.RopeFlag)
         {
             SceneManager.LoadScene(scenename);
         }

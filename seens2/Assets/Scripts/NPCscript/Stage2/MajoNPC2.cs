@@ -86,7 +86,7 @@ public class MajoNPC2 : MonoBehaviour
         // 会話中で選択肢がある場合
         if (isChoosing)
         {
-            if (Input.GetKeyDown(choice1Key) || Input.GetButtonDown("Ybutton")) // 選択肢1
+            if (Input.GetKeyDown(choice1Key) || Input.GetButtonDown("Xbutton")) // 選択肢1
             {
                 if (seSource != null)
                 {
@@ -95,7 +95,7 @@ public class MajoNPC2 : MonoBehaviour
                 }
                 OnChoiceSelected("A");
             }
-            else if (Input.GetKeyDown(choice2Key)|| Input.GetButtonDown("Abutton")) // 選択肢2
+            else if (Input.GetKeyDown(choice2Key)|| Input.GetButtonDown("RBbutton")) // 選択肢2
             {
                 if (seSource != null)
                 {
@@ -125,7 +125,7 @@ public class MajoNPC2 : MonoBehaviour
         dialogueIndex = 0;
        
         
-        npcDialogueText.text = "どうしたの？\nY:ざいりょうが見つかった？\nA:それともしつ問？";
+        npcDialogueText.text = "どうしたの？\nX:ざいりょうが見つかった？\nRB:それともしつ問？";
         
 
         isChoosing = true; // 選択肢を有効化

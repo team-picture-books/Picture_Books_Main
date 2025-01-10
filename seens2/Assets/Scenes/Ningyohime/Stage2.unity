@@ -521,7 +521,7 @@ MonoBehaviour:
   - {fileID: 926249491}
   - {fileID: 1208606926}
   correctScene: arasuzi2
-  incorrectScene: Stage1_1
+  incorrectScene: arasuzi5
   correctAnswers: 01010000
   itemIcons:
   - {fileID: 176654276}
@@ -2901,7 +2901,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &908939892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3788,10 +3788,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pause
+  m_text: "Y\u30DC\u30BF\u30F3\u3092\u304A\u3057\u305F\u3089\u30A2\u30A4\u30C6\u30E0\u305B\u3093\u305F\u304F\u30E2\u30FC\u30C9\u306B\u5165\u308B\r\n\u305B\u3093\u305F\u304F\u30E2\u30FC\u30C9\u4E2D\u306B\r\nX,A,B,RB\u30DC\u30BF\u30F3\u3067\u30A2\u30A4\u30C6\u30E0\u3092\u9078\u629E\r\n\u3082\u3046\u3044\u3063\u304B\u3044Y\u30DC\u30BF\u30F3\u3092\u304A\u3057\u305F\u3089\n\u30A2\u30A4\u30C6\u30E0\u305B\u3093\u305F\u304F\u30E2\u30FC\u30C9\u3092\u304B\u3044\u3058\u3087\n\u30A2\u30A4\u30C6\u30E0\u3092\u305B\u3093\u305F\u304F\u3057\u305F\u3058\u3087\u3046\u305F\u3044\u3067\u5BFE\u3057\u3087\u3046\u306ENPC\u306E\u8FD1\u304F\u3067a\u30DC\u30BF\u30F3\u3092\u304A\u3057\u305F\u3089\u30A2\u30A4\u30C6\u30E0\u3092\u308F\u305F\u3059"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e86fcf2cd2d8cb4eb52394909288655, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 7568980841175636313, guid: 2e86fcf2cd2d8cb4eb52394909288655, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3822,7 +3822,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3854,7 +3854,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1084321546
@@ -5557,7 +5557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1549449162
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7228,6 +7228,10 @@ PrefabInstance:
       propertyPath: seSource
       value: 
       objectReference: {fileID: 302621146}
+    - target: {fileID: 760657190807322861, guid: 08907fabedf70904d8cee24c5f24e8e0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3507659937849715728, guid: 08907fabedf70904d8cee24c5f24e8e0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -7254,7 +7258,7 @@ PrefabInstance:
       objectReference: {fileID: 302621146}
     - target: {fileID: 6042099530774257395, guid: 08907fabedf70904d8cee24c5f24e8e0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6044714023054887423, guid: 08907fabedf70904d8cee24c5f24e8e0, type: 3}
       propertyPath: m_IsActive
@@ -7374,7 +7378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8265937012180872261, guid: 08907fabedf70904d8cee24c5f24e8e0, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 87.3793
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 9159235861400795222, guid: 08907fabedf70904d8cee24c5f24e8e0, type: 3}
       propertyPath: seSource

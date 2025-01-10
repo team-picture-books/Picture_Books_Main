@@ -22,6 +22,7 @@ public class TownMainNPCItemscript : MonoBehaviour
     public TownMainNPCscript townMainNPCscript;
 
     public AudioSource seSource;
+    public Posterscript posterscript;
 
     private bool isNearNPC = false; // プレイヤーがNPCに近いかどうか
     private int dialogueIndex = 0; // 現在の会話インデックス
@@ -45,9 +46,9 @@ public class TownMainNPCItemscript : MonoBehaviour
     private string[] dialogueTextsAfterChoiceB = new string[]
     {
         "ほんと！わたしは土台見つけたから見つけたパーツを組み合わせよう！",
-        "ありがとう、あなたのおかげでオルゴールが戻ってきた！",
+        "ありがとう、あなたのおかげでオルゴールがもどってきた！",
         "お礼にパンあげる！",
-        "うちがパン屋だから何か困ったことがあったら来てね！"
+        "うちがパン屋だから何かこまったことがあったら来てね！"
     };
 
     void Start()
@@ -183,12 +184,16 @@ public class TownMainNPCItemscript : MonoBehaviour
         isDialogueActive = false;
         if (transferflag)
         {
-            if (scene3Transferscript.posterflag)
+            if (posterscript.destroyFlag)
             {
                 SceneManager.LoadScene(scenename2);
             }
-            SceneManager.LoadScene(scenename1);
-            
+            else
+            {
+                SceneManager.LoadScene(scenename1);
+
+            }
+
         }
         
     }

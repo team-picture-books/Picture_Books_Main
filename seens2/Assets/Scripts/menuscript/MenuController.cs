@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     public string[] sceneNames;          // 各メニュー項目に対応するシーン名
     private int selectedIndex = 0;       // 現在選択されているインデックス
     private Coroutine blinkCoroutine;    // 点滅用コルーチン
+    private bool isAxisInUse = false;    // アクシス連続入力防止用フラグ
 
     private void Start()
     {
@@ -22,37 +23,38 @@ public class MenuController : MonoBehaviour
 
     private void HandleInput()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            selectedIndex--;
-            if (selectedIndex < 0) selectedIndex = menuItems.Length - 1;
-            UpdateMenuDisplay();
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            selectedIndex++;
-            if (selectedIndex >= menuItems.Length) selectedIndex = 0;
-            UpdateMenuDisplay();
-        }
-        if (Input.GetButtonDown("Ybutton"))
-        {
-            selectedIndex--;
-            if (selectedIndex < 0) selectedIndex = menuItems.Length - 1;
-            UpdateMenuDisplay();
-        }
-        else if (Input.GetButtonDown("Abutton"))
-        {
-            selectedIndex++;
-            if (selectedIndex >= menuItems.Length) selectedIndex = 0;
-            UpdateMenuDisplay();
-        }
+        float verticalInput = Input.GetAxis("Vertical");
 
+        if (!isAxisInUse)
+        {
+            if (verticalInput > 0.5f) // 上方向の入力
+            {
+                selectedIndex--;
+                if (selectedIndex < 0) selectedIndex = menuItems.Length - 1;
+                UpdateMenuDisplay();
+                StartCoroutine(ResetAxis());
+            }
+            else if (verticalInput < -0.5f) // 下方向の入力
+            {
+                selectedIndex++;
+                if (selectedIndex >= menuItems.Length) selectedIndex = 0;
+                UpdateMenuDisplay();
+                StartCoroutine(ResetAxis());
+            }
+        }
 
         if (Input.GetButtonDown("Bbutton"))
         {
-            // スペースキーを押したら、対応するシーンに遷移
+            // ボタン入力で選択されたシーンに遷移
             SceneManager.LoadScene(sceneNames[selectedIndex]);
         }
+    }
+
+    private IEnumerator ResetAxis()
+    {
+        isAxisInUse = true; // アクシス入力フラグを立てる
+        yield return new WaitForSeconds(0.2f); // 必要に応じて調整
+        isAxisInUse = false; // フラグをリセット
     }
 
     private void UpdateMenuDisplay()
@@ -88,3 +90,4 @@ public class MenuController : MonoBehaviour
         text.alpha = 1f;  // αを完全に戻す
     }
 }
+

@@ -157,17 +157,13 @@ public class Stage7NPC : MonoBehaviour
         Debug.Log("アイテムを取得しました！");
         
         ToggleObject.toggleobeject();
-        if(npcID == 1)
-        {
-            GameManager.Instance.DumbbellFlag = true;
-        }
-        if (npcID == 2)
+        if(npcID == 3)
         {
             GameManager.Instance.ProteinFlag = true;
+            Debug.Log("プロテインフラグオン");
+
         }
-        if (npcID == 3)
-        {
-            GameManager.Instance.RopeFlag = true;
-        }
+
+
     }
 }
